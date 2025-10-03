@@ -64,3 +64,13 @@ find . -type f -user olduser -exec chown newuser {} +
 ```
 find . -xtype
 ```
+
+### Find and replace 
+
+
+```
+# Find files with 'txt' extension and rename them to 'tf' extension in all subdirectories
+# % shell expansion for shortest suffix match is used to remove .txt and add .tf
+
+find . -type f -name '*.txt' -exec sh -c 'mv "$0" "${0%.txt}.tf"' {} \;
+```
